@@ -4125,7 +4125,9 @@ def _plot_rspline(
             markeredgewidth=2.0,
             label=f"{names[num]} nodes",
         )[0]
-        ax.plot(*circle_basic, h.get_color(), label=f"{names[num]} best-fit circle")
+        ax.plot(
+            *circle_basic, color=h.get_color(), label=f"{names[num]} best-fit circle"
+        )
 
     # get basic coordinates of newpts:
     newpts_basic = newpts @ basic2local + center
