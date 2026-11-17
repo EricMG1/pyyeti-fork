@@ -1396,10 +1396,11 @@ def reorder_dict(ordered_dict, keys, where):
     >>> dct = OrderedDict((('one', 1),
     ...                    ('two', 2),
     ...                    ('three', 3)))
-    >>> dct
-    OrderedDict({'one': 1, 'two': 2, 'three': 3})
-    >>> reorder_dict(dct, ['three', 'two'], 'first')
-    OrderedDict({'three': 3, 'two': 2, 'one': 1})
+    >>> list(dct.items())
+    [('one', 1), ('two', 2), ('three', 3)]
+    >>> new = reorder_dict(dct, ['three', 'two'], 'first')
+    >>> type(new).__name__, list(new.items())
+    ('OrderedDict', [('three', 3), ('two', 2), ('one', 1)])
     """
 
     def reorder_keys(all_keys, keys, where):
